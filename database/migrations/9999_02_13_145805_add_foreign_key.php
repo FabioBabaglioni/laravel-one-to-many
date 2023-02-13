@@ -15,11 +15,20 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
            
-            $table -> bigInteger('user_id') -> unsigned();
+            // $table -> bigInteger('user_id') -> unsigned();
 
-            $table -> foreign('user_id')
-                   -> references('id')
-                   -> on('users');
+            // $table -> foreign('user_id')
+            //        -> references('id')
+            //        -> on('users');
+            
+            $table -> foreignId('people_id') -> constrained();
+                
+        });
+
+        Schema::table('person_details', function (Blueprint $table) {
+            
+            $table -> foreignId('people_id') -> constrained();
+            $table -> primary('people_id');
         });
     }
 
