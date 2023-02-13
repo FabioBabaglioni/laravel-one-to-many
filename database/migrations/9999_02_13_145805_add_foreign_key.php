@@ -21,14 +21,14 @@ return new class extends Migration
             //        -> references('id')
             //        -> on('users');
             
-            $table -> foreignId('people_id') -> constrained();
+            $table -> foreignId('person_id') -> constrained();
                 
         });
 
         Schema::table('person_details', function (Blueprint $table) {
             
-            $table -> foreignId('people_id') -> constrained();
-            $table -> primary('people_id');
+            $table -> foreignId('person_id') -> constrained();
+            $table -> primary('person_id');
         });
     }
 
